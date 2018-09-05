@@ -9,3 +9,11 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+@login_required
+def user_logout(request):
+    context = RequestContext(request)
+    logout(request)
+    # Redirect back to index page.
+    return HttpResponseRedirect('/')
